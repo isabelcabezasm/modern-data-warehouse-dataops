@@ -1,0 +1,9 @@
+{
+	"name": "mdwdops-adf-dev-pads3",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4630672c-6e15-41ca-b883-a93e929abaeb",
+		"tenantId": "16b3c013-d300-468d-ac64-7eda0820b6d3"
+	}
+}
