@@ -10,9 +10,12 @@ jobs:
   steps:
   - script: |
       curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-      sudo bash -c "curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list"
+      sudo apt-add-repository https://packages.microsoft.com/debian/10/prod
+      sudo apt-get update
+
+      # sudo bash -c "curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list"
       # sudo apt-get update
-      # sudo ACCEPT_EULA=Y apt-get -y install msodbcsql17 unixodbc-dev
+      sudo ACCEPT_EULA=Y apt-get -y install msodbcsql17 unixodbc-dev
     displayName: 'Install msodbc'
 
   - task: UsePythonVersion@0
