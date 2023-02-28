@@ -3,14 +3,14 @@ jobs:
   displayName: 'Run integration tests'
   dependsOn: deploy_adf
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: 'ubuntu-20.04'
   variables:
     pythonWorkingDir: 'e2e_samples/parking_sensors/tests/integrationtests'
     pythonVersion: 3.7
   steps:
   - script: |
       curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-      sudo apt-add-repository https://packages.microsoft.com/debian/10/prod
+      sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/prod.list)"
       sudo apt-get update
       sudo ACCEPT_EULA=Y apt-get -y install msodbcsql17 unixodbc-dev
     displayName: 'Install msodbc'
