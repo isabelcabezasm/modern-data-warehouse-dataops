@@ -6,14 +6,14 @@ jobs:
     vmImage: 'ubuntu-latest'
   variables:
     pythonWorkingDir: 'e2e_samples/parking_sensors/tests/integrationtests'
-    pythonVersion: 3.7
+    pythonVersion: 3.6
   steps:
-   - script: |
-       curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-       sudo apt-add-repository https://packages.microsoft.com/debian/10/prod
-       sudo apt-get update
-       sudo ACCEPT_EULA=Y apt-get -y install msodbcsql17 unixodbc-dev
-     displayName: 'Install msodbc'
+  - script: |
+      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+      sudo apt-add-repository https://packages.microsoft.com/debian/10/prod
+      sudo apt-get update
+      sudo ACCEPT_EULA=Y apt-get -y install msodbcsql17 unixodbc-dev
+    displayName: 'Install msodbc'
 
   - task: UsePythonVersion@0
     inputs:
